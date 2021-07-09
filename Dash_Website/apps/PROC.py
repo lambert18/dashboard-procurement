@@ -8,7 +8,6 @@ from app import app
 
 layout = html.Div(children=[
     html.H1(children='PROC', style={
-        "color": "red",
         "text-align": "center"
     }),
     html.Div(dcc.Dropdown(

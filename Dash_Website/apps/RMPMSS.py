@@ -11,7 +11,6 @@ from apps.chartRMPMSS import summary, spending, PIRMPM
 
 layout = html.Div(children=[
     html.H1('RMPM-SS', style={
-        "color": "red",
         "text-align": "center"
     }),
 

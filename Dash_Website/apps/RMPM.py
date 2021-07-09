@@ -12,7 +12,6 @@ from apps.chartRMPM import FPP
 layout = html.Div(children=[
 
     html.H1(children='RMPM', style={
-        "color": "red",
         "text-align": "center"
     }),
 
