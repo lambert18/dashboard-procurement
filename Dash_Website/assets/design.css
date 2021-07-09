@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    margin: 0 2em;
+    padding: 0 2em;
+
+}
+
+.nav-pills .nav-link.active {
+    color: #fff;
+    background-color: #87BD40;
+}
+
+.nav-pills a {
+    color: #000;
+}
+
+.nav-pills a:hover {
+    color: #87BD40;
+}
