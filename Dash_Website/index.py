@@ -2,6 +2,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
+from dash_html_components.Img import Img
 
 # Connect to main app.py file
 from app import app
@@ -28,7 +29,7 @@ CONTENT_STYLE = {
 
 sidebar = html.Div(
     [
-        html.H2("Ini Logo", className="display-4"),
+        html.Img(src=app.get_asset_url('logo-kalbe.png'), className="img-logo"),
         html.Hr(),
         dbc.Nav(
             [
