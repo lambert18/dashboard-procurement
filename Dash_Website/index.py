@@ -1,55 +1,46 @@
+from dash_bootstrap_components._components.NavLink import NavLink
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
+from dash_html_components.Div import Div
 from dash_html_components.Img import Img
+from dash_html_components.Nav import Nav
 
 # Connect to main app.py file
 from app import app
 from app import server
 
 # Connect to your app pages
-from apps import PROC, RMPM, CLEARANCE, INMKT, RMPMSS, NONMKT
-
-SIDEBAR_STYLE = {
-    "position": "fixed",
-    "top": 0,
-    "left": 0,
-    "bottom": 0,
-    "width": "16rem",
-    "padding": "2rem 1rem",
-    "background-color": "#f8f9fa",
-}
-
-CONTENT_STYLE = {
-    "margin-left": "18rem",
-    "margin-right": "2rem",
-    "padding": "2rem 1rem",
-}
+from apps import HOME, PROC, RMPM, CLEARANCE, INMKT, RMPMSS, NONMKT
 
 sidebar = html.Div(
     [
-        html.Img(src=app.get_asset_url('logo-kalbe.png'), className="img-logo"),
-        html.Hr(),
-        dbc.Nav(
-            [
-                dbc.NavLink("Home", href="/", active="exact"),
-                dbc.NavLink("PROC", href="/apps/PROC", active="exact"),
-                dbc.NavLink("RM/PM-SS", href="/apps/RMPMSS", active="exact"),
-                dbc.NavLink("RM/PM", href="/apps/RMPM", active="exact"),
-                dbc.NavLink("CLEARANCE", href="/apps/CLEARANCE", active="exact"),
-                dbc.NavLink("INDIRECT MKT", href="/apps/INMKT", active="exact"),
-                dbc.NavLink("INDIRECT NON MKT", href="/apps/NONMKT", active="exact"),
-            ],
-            vertical=True,
-            pills=True,
-            
+        html.Div(
+            html.Div([
+                html.Img(src=app.get_asset_url('logo-kalbe.png'), className="img__logo"),
+                html.Hr(),
+                dbc.Nav(
+                [
+                    dbc.NavLink("Home", href="/apps/HOME", active="exact"),
+                    dbc.NavLink("PROC", href="/apps/PROC", active="exact"),
+                    dbc.NavLink("RM/PM-SS", href="/apps/RMPMSS", active="exact"),
+                    dbc.NavLink("RM/PM", href="/apps/RMPM", active="exact"),
+                    dbc.NavLink("CLEARANCE", href="/apps/CLEARANCE", active="exact"),
+                    dbc.NavLink("INDIRECT MKT", href="/apps/INMKT", active="exact"),
+                    dbc.NavLink("INDIRECT NON MKT", href="/apps/NONMKT", active="exact")
+                ],
+                vertical=True,
+                pills=True,
+                ),
+            ]),
+            className="sidebar__style",
         ),
+        
     ],
-    style=SIDEBAR_STYLE,
 )
 
-content = html.Div(id="page-content", children=[], style=CONTENT_STYLE)
+content = html.Div(className="content__style", id="page-content", children=[] )
 
 app.layout = html.Div([
     dcc.Location(id="url"),
@@ -57,33 +48,11 @@ app.layout = html.Div([
     content
 ])
 
-
-
-
-# app.layout = html.Div(children=[
-#     html.H1(children='Welcome To Procurement', style={
-#         "color": "red",
-#         "text-align": "center",
-#         "background-color": "lightblue",
-#         "height": "200px"
-#     }),
-#     html.Div([
-#         dcc.Location(id='url', refresh=False),
-#         html.Div([
-#             dcc.Link('PROC', href='/apps/PROC', className="link"), 
-#             dcc.Link('RM/PM-SS', href='/apps/RMPMSS', className="link"),
-#             dcc.Link('RM/PM', href='/apps/RMPM', className="link"),
-#             dcc.Link('CLEARANCE', href='/apps/CLEARANCE', className="link"),
-#             dcc.Link('INDIRECT MKT', href='/apps/INMKT', className="link"),
-#             dcc.Link('INDIRECT NON MKT', href='/apps/NONMKT', className="link"),
-#         ], className="menu"),
-#         html.Div(id='page-content', children=[]),
-#     ])])
-
-
 @ app.callback(Output('page-content', 'children'),
                [Input('url', 'pathname')])
 def display_page(pathname):
+    if pathname == '/apps/HOME':
+        return HOME.layout
     if pathname == '/apps/RMPM':
         return RMPM.layout
     if pathname == '/apps/PROC':
@@ -97,7 +66,7 @@ def display_page(pathname):
     if pathname == '/apps/NONMKT':
         return NONMKT.layout
     else:
-        return "404 Page Error! Please choose a link"
+        return HOME.layout
 
 
 if __name__ == '__main__':
