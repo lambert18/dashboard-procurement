@@ -3,11 +3,38 @@
     padding: 0;
 }
 
-.img-logo {
+.layout {
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.dropdown__menu {
+    display: block;
+    width: 20%;
+}
+
+/* 
+===============
+    SIDEBAR
+===============
+*/
+
+.img__logo {
     display: block;
     position: relative;
     width: 9em;
     margin: 0 auto;
+}
+
+.sidebar__style {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 16rem;
+    padding: 2rem 1rem;
+    background-color: #f8f9fa;
 }
 
 .link {
@@ -28,3 +55,51 @@
 .nav-pills a:hover {
     color: #87BD40;
 }
+
+.content__style {
+    margin: 0 2rem 0 18rem;
+    padding: 2rem 1rem;
+}
+
+/* 
+============
+    HOME
+============ 
+*/
+
+.display__img {
+    display: inline;
+    width: 15em;
+    margin: 1.5em;
+    border-radius: 5%;
+    box-shadow: 3px 3px 5px 6px rgb(236, 235, 235);
+    transition-property: transform, box-shadow;
+    transition-duration: 0.5s;
+}
+
+.display__img:hover {
+    transform: scale(1.12);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.display__container {
+    display: flex;
+    flex-flow: wrap;
+    width: 45vw;
+    margin: 0 auto;
+    padding-top: 10em;
+}
+
+.img__style {
+    display: inline;
+    width: 5vw;
+    height: 5vw;
+    margin: 1em;
+}
+
+/* 
+=================
+    CLEARANCE
+=================
+*/
+
