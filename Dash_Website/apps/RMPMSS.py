@@ -10,9 +10,7 @@ from apps.chartRMPMSS import summary, spending, PIRMPM
 
 
 layout = html.Div(children=[
-    html.H1('RMPM-SS', style={
-        "text-align": "center"
-    }),
+    html.H1('RMPM-SS', className="layout"),
 
     html.Div(dcc.Dropdown(
         id='dropdown',
@@ -22,10 +20,7 @@ layout = html.Div(children=[
             {'label': 'Contract Coverage per Supplier Category', 'value': 'c'},
             {'label': 'Spending by Category', 'value': 'd'}
         ],
-        value='a'), style={
-            "display": "inline-block",
-            "width": "20%"
-    }),
+        value=''), className="dropdown__menu"),
 
 
 
@@ -45,4 +40,4 @@ def display_page(label):
     if label == 'd':
         return spending.layout
     else:
-        return "404 Page Error! Please choose a link"
+        return "Silahkan klik dropdown diatas dan pilih kategori!"

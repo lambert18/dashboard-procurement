@@ -11,9 +11,7 @@ from apps.chartRMPM import FPP
 
 layout = html.Div(children=[
 
-    html.H1(children='RMPM', style={
-        "text-align": "center"
-    }),
+    html.H1(children='RMPM', className="layout"),
 
     html.Div(dcc.Dropdown(
         id='dropdown',
@@ -21,10 +19,7 @@ layout = html.Div(children=[
             {'label': 'FPP', 'value': 'a'},
             {'label': 'FKP', 'value': 'FKP'},
         ],
-        value=''), style={
-            "display": "inline-block",
-            "width": "20%"
-    }),
+        value=''), className="dropdown__menu"),
 
     html.Div(id='chart-content', children=[])
 ])

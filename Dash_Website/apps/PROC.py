@@ -7,9 +7,7 @@ import pathlib
 from app import app
 
 layout = html.Div(children=[
-    html.H1(children='PROC', style={
-        "text-align": "center"
-    }),
+    html.H1(children='PROC', className="layout"),
     html.Div(dcc.Dropdown(
         id='demo-dropdown',
         options=[

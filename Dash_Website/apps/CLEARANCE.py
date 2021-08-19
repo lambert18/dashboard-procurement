@@ -7,9 +7,7 @@ import pathlib
 from app import app
 
 layout = html.Div(children=[
-    html.H1(children='Clearance', style={
-        "text-align": "center"
-    }),
+    html.H1(children='Clearance', className="layout"),
     html.Div(dcc.Dropdown(
         id='demo-dropdown',
         options=[
@@ -17,8 +15,5 @@ layout = html.Div(children=[
             {'label': 'FKP', 'value': 'FKP'},
             {'label': 'SUMMARY', 'value': 'SUMMARY'}
         ],
-        value='SUMMARY'), style={
-            "display": "block",
-            "width": "20%"
-    }),
+        value='SUMMARY'), className="dropdown__menu"),
 ])
